@@ -27,7 +27,7 @@ namespace GameOfLife
 
         private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("sam text");
+            MessageBox.Show("sam asdasdasdasd");
         }
     }
 }
