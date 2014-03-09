@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using GameOfLife.Logic;
 namespace GameOfLife
 {
     /// <summary>
@@ -23,6 +23,12 @@ namespace GameOfLife
         public MainWindow()
         {
             InitializeComponent();
+            Dimension dim = new Dimension(50, 50);
+            LifeBoard lifeBoard = new LifeBoard(dim);
+
+            lifeBoard[5,10] = true;
+
+            int i = 0;
         }
 
     }
