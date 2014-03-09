@@ -10,7 +10,7 @@ namespace GameOfLife
 {
     class LifeBoard
     {
-        private BitArray[,] array;
+        private bool[,] array;
         private int width;
         private int height;
         private int size;
@@ -22,14 +22,17 @@ namespace GameOfLife
             width = dim.Width;
             height = dim.Height;
             size = dim.Size;
-            array = new BitArray[width, height];
+            array = new bool[width, height];            
         }
 
         public void Clear()
         {
-            for (int i = 0; i < NUMBER_OF_DIMENSIONS; i++)
+            for (int i = 0; i < width; i++)
 			{
-                this.array[i, 0].SetAll(false);
+                for (int j = 0; j < height; j++)
+                {
+                    this.array[i, j] = false;                    
+                }
 			}
         }
 
@@ -41,7 +44,7 @@ namespace GameOfLife
                     throw new IndexOutOfRangeException("Incorrect x or y.");    
                 else
                 {
-                    //return array[x , y];
+                    return array[x , y];
                 }
             }
             set
@@ -50,7 +53,7 @@ namespace GameOfLife
                     throw new IndexOutOfRangeException("Incorrect x or y.");    
                 else
                 {
-                    //array[x, y].Set( = value;
+                    array[x, y] = value;
                 }
             }
         }
