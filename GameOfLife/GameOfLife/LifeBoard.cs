@@ -15,8 +15,6 @@ namespace GameOfLife
         private int height;
         private int size;
 
-        private const int NUMBER_OF_DIMENSIONS = 2;
-
         public LifeBoard(Dimension dim)
         {
             width = dim.Width;
@@ -34,6 +32,19 @@ namespace GameOfLife
                     this.array[i, j] = false;                    
                 }
 			}
+        }
+
+        public void CopyTo(LifeBoard lifeBoard)
+        {
+            int width = Math.Min(this.width, lifeBoard.width);
+            int height = Math.Min(this.height, lifeBoard.height);
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    lifeBoard[i, j] = this[i, j];
+                }
+            }
         }
 
         public bool this[int x, int y]

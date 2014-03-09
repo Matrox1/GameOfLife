@@ -25,6 +25,12 @@ namespace GameOfLife
             InitializeComponent();
             Dimension dim = new Dimension(50, 50);
             LifeBoard lifeBoard = new LifeBoard(dim);
+            lifeBoard[1, 1] = true;
+            Dimension dim2 = new Dimension(25, 25);
+
+            LifeBoard lifeBoadr2 = new LifeBoard(dim2);
+
+            lifeBoard.CopyTo(lifeBoadr2);
 
             lifeBoard[5,10] = true;
 
